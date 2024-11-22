@@ -1,0 +1,44 @@
+  /* General Styles */
+            .custom-scrollbar-container {
+                overflow-x: auto; /* Enable horizontal scrolling by default */
+                height: auto;
+                scrollbar-gutter: stable; /* Keeps space for scrollbar even if it's not visible */
+            }
+
+            /* Always show scrollbar in responsive view */
+            @media (max-width: 768px) {
+                .custom-scrollbar-container {
+                    overflow-x: scroll; /* Always show scrollbar in responsive */
+                }
+
+                /* Webkit Browsers (Chrome, Safari, Edge) */
+                .custom-scrollbar-container::-webkit-scrollbar {
+                    height: 10px; /* Horizontal scrollbar height */
+                }
+                .custom-scrollbar-container::-webkit-scrollbar-thumb {
+                    background-color: gray; /* Thumb color */
+                    border-radius: 6px; /* Rounded corners */
+                }
+                .custom-scrollbar-container::-webkit-scrollbar-thumb:hover {
+                    background-color: darkgray; /* Darker on hover */
+                }
+                .custom-scrollbar-container::-webkit-scrollbar-track {
+                    background-color: white; /* Track color */
+                }
+
+                /* Firefox Styles */
+                .custom-scrollbar-container {
+                    scrollbar-color: gray white; /* Thumb and track colors */
+                    scrollbar-width: thin; /* Make scrollbar smaller */
+                }
+            }
+
+            /* Larger Screens (No Scrollbar) */
+            @media (min-width: 769px) {
+                .custom-scrollbar-container {
+                    overflow-x: hidden; /* Disable horizontal scroll */
+                }
+                .custom-scrollbar-container::-webkit-scrollbar {
+                    display: none; /* Hide scrollbar on larger screens */
+                }
+            }
